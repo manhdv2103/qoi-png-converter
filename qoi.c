@@ -97,6 +97,8 @@ unsigned int qoi_encode_file(const char *filename, const unsigned char *image,
       unsigned int chunk_num =
           ceil(((double)run_length) / ((double)MAX_RUN_LENGTH));
       unsigned int last_chunk_run_length = run_length % MAX_RUN_LENGTH;
+      last_chunk_run_length =
+          last_chunk_run_length == 0 ? MAX_RUN_LENGTH : last_chunk_run_length;
       new_data_size = chunk_num;
 
       if (chunk_num > STATIC_TMP_DATA_SIZE) {
