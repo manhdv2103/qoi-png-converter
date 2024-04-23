@@ -70,7 +70,7 @@ unsigned int qoi_encode_file(const char *filename, const unsigned char *image,
   seen_pixels[get_index_position(prev_pixel)] = prev_pixel;
 
   unsigned char static_tmp_data[STATIC_TMP_DATA_SIZE];
-  uint8_t run_length = 0;
+  uint64_t run_length = 0;
   bool contains_alpha = false;
 
   unsigned int data_length = w * h;
